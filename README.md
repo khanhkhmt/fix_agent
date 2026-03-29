@@ -376,3 +376,4 @@ Websocket接口地址: wss://2662r3426b.vicp.fun/xiaozhi/v1/
    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=xinnan-tech/xiaozhi-esp32-server&type=Date" />
  </picture>
 </a># oriagent-device
+# oriagent-device
