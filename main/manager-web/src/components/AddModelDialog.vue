@@ -345,8 +345,8 @@ export default {
 }
 
 .custom-close-btn:hover {
-  color: #409EFF;
-  border-color: #409EFF;
+  color: #000000;
+  border-color: #000000;
 }
 
 .custom-select .el-input__suffix {

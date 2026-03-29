@@ -223,7 +223,7 @@ export default {
 }
 
 .btn-search {
-  background: linear-gradient(135deg, #6b8cff, #a966ff);
+  background: linear-gradient(135deg, #555555, #a966ff);
   border: none;
   color: white;
 }

@@ -36,7 +36,7 @@ export const register = () => {
                       position: fixed;
                       bottom: 20px;
                       right: 20px;
-                      background: #409EFF;
+                      background: #000000;
                       color: white;
                       padding: 12px 20px;
                       border-radius: 4px;
@@ -46,7 +46,7 @@ export const register = () => {
                     updateNotification.innerHTML = `
                       <div style="display: flex; align-items: center;">
                         <span style="margin-right: 10px;">发现新版本，点击刷新应用</span>
-                        <button style="background: white; color: #409EFF; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">刷新</button>
+                        <button style="background: white; color: #000000; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">刷新</button>
                       </div>
                     `;
                     document.body.appendChild(updateNotification);

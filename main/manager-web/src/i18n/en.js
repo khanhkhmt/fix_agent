@@ -22,7 +22,7 @@ export default {
   'header.clearHistory': 'Clear History',
   'header.providerManagement': 'Provider Management',
   'header.serverSideManagement': 'Server Management',
-  'header.featureManagement': 'System Feature Management',
+  'header.featureManagement': 'System Features',
   'header.changePassword': 'Change Password',
   'header.logout': 'Logout',
   'header.searchPlaceholder': 'Name, tag or MAC search',
@@ -666,7 +666,7 @@ export default {
 
   // Home page text
   'home.addAgent': 'Add Agent',
-  'home.greeting': 'Hi XiaoZhi',
+  'home.greeting': 'Hi Oriagent',
   'home.wish': "Let's have a wonderful day!",
   'home.languageModel': 'LLM',
   'home.voiceModel': 'TTS',

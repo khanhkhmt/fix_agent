@@ -167,8 +167,8 @@ export default {
 }
 
 .drawer-close-btn:hover {
-  color: #409eff;
-  border-color: #409eff;
+  color: #000000;
+  border-color: #000000;
 }
 
 .drawer-content {

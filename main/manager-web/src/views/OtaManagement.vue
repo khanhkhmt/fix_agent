@@ -456,7 +456,7 @@ export default {
 }
 
 .btn-search {
-    background: linear-gradient(135deg, #6b8cff, #a966ff);
+    background: linear-gradient(135deg, #555555, #a966ff);
     border: none;
     color: white;
 }
@@ -729,7 +729,7 @@ export default {
 }
 
 :deep(.el-loading-spinner .path) {
-    stroke: #6b8cff;
+    stroke: #555555;
 }
 
 .el-table {

@@ -1377,7 +1377,7 @@ export default {
       background: #e6ebff;
     }
     &::-webkit-scrollbar-thumb {
-      background: #5778ff;
+      background: #000000;
       border-radius: 8px;
     }
 }
@@ -1401,7 +1401,7 @@ export default {
 .header-icon {
   width: 37px;
   height: 37px;
-  background: #5778ff;
+  background: #000000;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1445,7 +1445,7 @@ export default {
 }
 
 .play-button {
-  color: #409eff;
+  color: #000000;
   transition: color 0.3s;
 }
 
@@ -1483,7 +1483,7 @@ export default {
   font-weight: 400;
   font-size: 11px;
   text-align: center;
-  color: #5778ff;
+  color: #000000;
   cursor: pointer;
   transition: background-color 0.3s ease;
   white-space: nowrap;
@@ -1541,7 +1541,7 @@ export default {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #5778ff;
+  color: #000000;
   font-weight: bold;
   font-size: 12px;
   margin-right: 8px;
@@ -1588,13 +1588,13 @@ export default {
 }
 
 .custom-close-btn:hover {
-  color: #409eff;
-  border-color: #409eff;
+  color: #000000;
+  border-color: #000000;
 }
 
 .edit-function-btn {
   background: #e6ebff;
-  color: #5778ff;
+  color: #000000;
   border: 1px solid #adbdff;
   border-radius: 18px;
   padding: 10px 20px;
@@ -1602,7 +1602,7 @@ export default {
 }
 
 .edit-function-btn.active-btn {
-  background: #5778ff;
+  background: #000000;
   color: white;
 }
 
@@ -1614,23 +1614,23 @@ export default {
 }
 
 .chat-history-options ::v-deep .el-radio-button {
-  border-color: #5778ff;
+  border-color: #000000;
 }
 
 .chat-history-options ::v-deep .el-radio-button .el-radio-button__inner {
-  color: #5778ff;
-  border-color: #5778ff;
+  color: #000000;
+  border-color: #000000;
   background-color: transparent;
 }
 
 .chat-history-options ::v-deep .el-radio-button.is-active .el-radio-button__inner {
-  background-color: #5778ff;
-  border-color: #5778ff;
+  background-color: #000000;
+  border-color: #000000;
   color: white;
 }
 
 .chat-history-options ::v-deep .el-radio-button .el-radio-button__inner:hover {
-  color: #5778ff;
+  color: #000000;
 }
 
 .header-actions {
@@ -1655,7 +1655,7 @@ export default {
 }
 
 .header-actions .save-btn {
-  background: #5778ff;
+  background: #000000;
   color: white;
   border: none;
   border-radius: 18px;
@@ -1666,7 +1666,7 @@ export default {
 
 .header-actions .reset-btn {
   background: #e6ebff;
-  color: #5778ff;
+  color: #000000;
   border: 1px solid #adbdff;
   border-radius: 18px;
   padding: 8px 16px;
@@ -1686,7 +1686,7 @@ export default {
 }
 
 .doc-link {
-  color: #5778ff;
+  color: #000000;
   text-decoration: none;
   margin-left: 4px;
 
@@ -1722,7 +1722,7 @@ export default {
 }
 .custom-tag {
   background: #e6ebff;
-  color: #5778ff;
+  color: #000000;
   border-radius: 8px;
   font-size: 12px;
   font-weight: normal;
@@ -1730,7 +1730,7 @@ export default {
 }
 .custom-tag-btn {
   background: #e6ebff;
-  color: #5778ff;
+  color: #000000;
   border-radius: 8px;
   font-weight: normal;
   border: 1px solid #e6ebff;

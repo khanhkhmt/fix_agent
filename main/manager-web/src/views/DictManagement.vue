@@ -500,7 +500,7 @@ export default {
 }
 
 .btn-search {
-    background: linear-gradient(135deg, #6b8cff, #a966ff);
+    background: linear-gradient(135deg, #555555, #a966ff);
     border: none;
     color: white;
 }
@@ -518,7 +518,7 @@ export default {
 }
 
 :deep(.search-input .el-input__inner:focus) {
-    border-color: #6b8cff;
+    border-color: #555555;
     outline: none;
 }
 
@@ -846,11 +846,11 @@ export default {
 }
 
 :deep(.el-loading-spinner .path) {
-    stroke: #6b8cff;
+    stroke: #555555;
 }
 
 :deep(.el-loading-text) {
-    color: #6b8cff !important;
+    color: #555555 !important;
     font-size: 14px;
     margin-top: 8px;
 }
@@ -860,7 +860,7 @@ export default {
 }
 
 :deep(.dict-type-table .el-table__row.current-row) {
-    background-color: #5778ff !important;
+    background-color: #000000 !important;
     color: white;
 }
 
@@ -873,7 +873,7 @@ export default {
 }
 
 :deep(.dict-type-table .el-table__row.current-row:hover) {
-    background-color: #5778ff !important;
+    background-color: #000000 !important;
 }
 
 :deep(.dict-type-table .el-table__row td) {

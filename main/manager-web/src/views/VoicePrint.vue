@@ -235,7 +235,7 @@ export default {
 }
 
 .btn-search {
-    background: linear-gradient(135deg, #6b8cff, #a966ff);
+    background: linear-gradient(135deg, #555555, #a966ff);
     border: none;
     color: white;
 }
@@ -550,11 +550,11 @@ export default {
 }
 
 :deep(.el-loading-spinner .path) {
-    stroke: #6b8cff;
+    stroke: #555555;
 }
 
 :deep(.el-loading-text) {
-    color: #6b8cff !important;
+    color: #555555 !important;
     font-size: 14px;
     margin-top: 8px;
 }

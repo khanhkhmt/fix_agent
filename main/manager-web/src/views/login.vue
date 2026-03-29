@@ -1,66 +1,36 @@
 <template>
-  <div class="welcome">
-    <el-container style="height: 100%">
-      <el-header>
-        <div style="
-            display: flex;
-            align-items: center;
-            margin-top: 11px;
-            margin-left: 11px;
-            gap: 10px;
-          ">
-          <img loading="lazy" alt="" src="@/assets/xiaozhi-logo.png" style="width: 42px; height: 42px" />
-          <img loading="lazy" alt="" :src="xiaozhiAiIcon" style="height: 20px" />
-        </div>
-      </el-header>
-      <div class="login-person">
-        <img loading="lazy" alt="" src="@/assets/login/login-person.png" style="width: 100%" />
+  <div class="split-layout">
+    <div class="split-left">
+    </div>
+    
+    <div class="split-right">
+      <div class="logo-area">
+        <img src="@/assets/logo_oriagent.svg" alt="Oriagent" style="height: 38px; width: auto; cursor: pointer" @click="goToPage('/home')" />
       </div>
-      <el-main style="position: relative">
+      <div class="login-box-container">
         <div class="login-box" @keyup.enter="login">
-          <div style="
-              display: flex;
-              align-items: center;
-              gap: 20px;
-              margin-bottom: 39px;
-              padding: 0 30px;
-            ">
+          <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 39px; padding: 0 30px;">
             <img loading="lazy" alt="" src="@/assets/login/hi.png" style="width: 34px; height: 34px" />
             <div class="login-text">{{ $t("login.title") }}</div>
-
-            <div class="login-welcome">
-              {{ $t("login.welcome") }}
-            </div>
+            <div class="login-welcome">{{ $t("login.welcome") }}</div>
 
             <!-- 语言切换下拉菜单 -->
-            <el-dropdown trigger="click" class="title-language-dropdown"
-              @visible-change="handleLanguageDropdownVisibleChange">
+            <el-dropdown trigger="click" class="title-language-dropdown" @visible-change="handleLanguageDropdownVisibleChange">
               <span class="el-dropdown-link">
                 <span class="current-language-text">{{ currentLanguageText }}</span>
                 <i class="el-icon-arrow-down el-icon--right" :class="{ 'rotate-down': languageDropdownVisible }"></i>
               </span>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item @click.native="changeLanguage('zh_CN')">
-                  {{ $t("language.zhCN") }}
-                </el-dropdown-item>
-                <el-dropdown-item @click.native="changeLanguage('zh_TW')">
-                  {{ $t("language.zhTW") }}
-                </el-dropdown-item>
-                <el-dropdown-item @click.native="changeLanguage('en')">
-                  {{ $t("language.en") }}
-                </el-dropdown-item>
-                <el-dropdown-item @click.native="changeLanguage('de')">
-                  {{ $t("language.de") }}
-                </el-dropdown-item>
-                <el-dropdown-item @click.native="changeLanguage('vi')">
-                  {{ $t("language.vi") }}
-                </el-dropdown-item>
-                <el-dropdown-item @click.native="changeLanguage('pt_BR')">
-                  {{ $t("language.ptBR") }}
-                </el-dropdown-item>
+                <el-dropdown-item @click.native="changeLanguage('zh_CN')">{{ $t("language.zhCN") }}</el-dropdown-item>
+                <el-dropdown-item @click.native="changeLanguage('zh_TW')">{{ $t("language.zhTW") }}</el-dropdown-item>
+                <el-dropdown-item @click.native="changeLanguage('en')">{{ $t("language.en") }}</el-dropdown-item>
+                <el-dropdown-item @click.native="changeLanguage('de')">{{ $t("language.de") }}</el-dropdown-item>
+                <el-dropdown-item @click.native="changeLanguage('vi')">{{ $t("language.vi") }}</el-dropdown-item>
+                <el-dropdown-item @click.native="changeLanguage('pt_BR')">{{ $t("language.ptBR") }}</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </div>
+          
           <div style="padding: 0 30px">
             <!-- 用户名登录 -->
             <template v-if="!isMobileLogin">
@@ -75,8 +45,7 @@
               <div class="input-box">
                 <div style="display: flex; align-items: center; width: 100%">
                   <el-select v-model="form.areaCode" style="width: 220px; margin-right: 10px">
-                    <el-option v-for="item in mobileAreaList" :key="item.key" :label="`${item.name} (${item.key})`"
-                      :value="item.key" />
+                    <el-option v-for="item in mobileAreaList" :key="item.key" :label="`${item.name} (${item.key})`" :value="item.key" />
                   </el-select>
                   <el-input v-model="form.mobile" :placeholder="$t('login.mobilePlaceholder')" />
                 </div>
@@ -85,71 +54,49 @@
 
             <div class="input-box">
               <img loading="lazy" alt="" class="input-icon" src="@/assets/login/password.png" />
-              <el-input v-model="form.password" :placeholder="$t('login.passwordPlaceholder')" type="password"
-                show-password />
+              <el-input v-model="form.password" :placeholder="$t('login.passwordPlaceholder')" type="password" show-password />
             </div>
-            <div style="
-                display: flex;
-                align-items: center;
-                margin-top: 20px;
-                width: 100%;
-                gap: 10px;
-              ">
+            
+            <div style="display: flex; align-items: center; margin-top: 20px; width: 100%; gap: 10px;">
               <div class="input-box" style="width: calc(100% - 130px); margin-top: 0">
                 <img loading="lazy" alt="" class="input-icon" src="@/assets/login/shield.png" />
                 <el-input v-model="form.captcha" :placeholder="$t('login.captchaPlaceholder')" style="flex: 1" />
               </div>
-              <img loading="lazy" v-if="captchaUrl" :src="captchaUrl" alt="验证码"
-                style="width: 150px; height: 40px; cursor: pointer" @click="fetchCaptcha" />
+              <img loading="lazy" v-if="captchaUrl" :src="captchaUrl" alt="验证码" style="width: 150px; height: 40px; cursor: pointer" @click="fetchCaptcha" />
             </div>
-            <div style="
-                font-weight: 400;
-                font-size: 14px;
-                text-align: left;
-                color: #5778ff;
-                display: flex;
-                justify-content: space-between;
-                margin-top: 20px;
-              ">
-              <div v-if="allowUserRegister" style="cursor: pointer" @click="goToRegister">
-                {{ $t("login.register") }}
-              </div>
-              <div style="cursor: pointer" @click="goToForgetPassword" v-if="enableMobileRegister">
-                {{ $t("login.forgetPassword") }}
-              </div>
+            
+            <div style="font-weight: 400; font-size: 14px; text-align: left; color: #000000; display: flex; justify-content: space-between; margin-top: 20px;">
+              <div v-if="allowUserRegister" style="cursor: pointer" @click="goToRegister">{{ $t("login.register") }}</div>
+              <div style="cursor: pointer" @click="goToForgetPassword" v-if="enableMobileRegister">{{ $t("login.forgetPassword") }}</div>
             </div>
           </div>
+          
           <div class="login-btn" @click="login">{{ $t("login.login") }}</div>
 
           <!-- 登录方式切换按钮 -->
           <div class="login-type-container" v-if="enableMobileRegister">
             <div style="display: flex; gap: 10px">
               <el-tooltip :content="$t('login.mobileLogin')" placement="bottom">
-                <el-button :type="isMobileLogin ? 'primary' : 'default'" icon="el-icon-mobile" circle
-                  @click="switchLoginType('mobile')"></el-button>
+                <el-button :type="isMobileLogin ? 'primary' : 'default'" icon="el-icon-mobile" circle @click="switchLoginType('mobile')"></el-button>
               </el-tooltip>
               <el-tooltip :content="$t('login.usernameLogin')" placement="bottom">
-                <el-button :type="!isMobileLogin ? 'primary' : 'default'" icon="el-icon-user" circle
-                  @click="switchLoginType('username')"></el-button>
+                <el-button :type="!isMobileLogin ? 'primary' : 'default'" icon="el-icon-user" circle @click="switchLoginType('username')"></el-button>
               </el-tooltip>
             </div>
           </div>
-          <div style="font-size: 14px; color: #979db1">
+          
+          <div style="font-size: 14px; color: #979db1; text-align: center; margin-top: 20px;">
             {{ $t("login.agreeTo") }}
-            <div style="display: inline-block; color: #5778ff; cursor: pointer" @click="openPage('/user-agreement.html')">
-              {{ $t("login.userAgreement") }}
-            </div>
+            <div style="display: inline-block; color: #000000; cursor: pointer" @click="openPage('/user-agreement.html')">{{ $t("login.userAgreement") }}</div>
             {{ $t("login.and") }}
-            <div style="display: inline-block; color: #5778ff; cursor: pointer" @click="openPage('/privacy-policy.html')">
-              {{ $t("login.privacyPolicy") }}
-            </div>
+            <div style="display: inline-block; color: #000000; cursor: pointer" @click="openPage('/privacy-policy.html')">{{ $t("login.privacyPolicy") }}</div>
           </div>
         </div>
-      </el-main>
-      <el-footer>
+      </div>
+      <div class="footer-area">
         <version-footer />
-      </el-footer>
-    </el-container>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -426,18 +373,18 @@ export default {
 }
 
 :deep(.el-button--primary) {
-  background-color: #5778ff;
-  border-color: #5778ff;
+  background-color: #000000;
+  border-color: #000000;
 
   &:hover,
   &:focus {
-    background-color: #4a6ae8;
-    border-color: #4a6ae8;
+    background-color: #333333;
+    border-color: #333333;
   }
 
   &:active {
-    background-color: #3d5cd6;
-    border-color: #3d5cd6;
+    background-color: #111111;
+    border-color: #111111;
   }
 }
 </style>

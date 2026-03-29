@@ -543,7 +543,7 @@ export default {
 }
 
 .btn-search {
-  background: linear-gradient(135deg, #6b8cff, #a966ff);
+  background: linear-gradient(135deg, #555555, #a966ff);
   border: none;
   color: white;
 }
@@ -600,7 +600,7 @@ export default {
 }
 
 ::v-deep .search-input .el-input__inner:focus {
-  border-color: #6b8cff;
+  border-color: #555555;
   outline: none;
 }
 

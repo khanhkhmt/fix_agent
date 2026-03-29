@@ -1,142 +1,10 @@
 <template>
   <el-header class="header">
     <div class="header-container">
-      <!-- 左侧元素 -->
-      <div class="header-left" @click="goHome">
-        <img loading="lazy" alt="" src="@/assets/xiaozhi-logo.png" class="logo-img" />
-        <img loading="lazy" alt="" :src="xiaozhiAiIcon" class="brand-img" />
+      <!-- 左侧留空，导航移至侧边栏 -->
+      <div class="header-left">
       </div>
 
-      <!-- 中间导航菜单 -->
-      <div class="header-center">
-        <div class="equipment-management" :class="{
-          'active-tab':
-            $route.path === '/home' ||
-            $route.path === '/role-config' ||
-            $route.path === '/device-management',
-        }" @click="goHome">
-          <img loading="lazy" alt="" src="@/assets/header/robot.png" :style="{
-            filter:
-              $route.path === '/home' ||
-                $route.path === '/role-config' ||
-                $route.path === '/device-management'
-                ? 'brightness(0) invert(1)'
-                : 'None',
-          }" />
-          <span class="nav-text">{{ $t("header.smartManagement") }}</span>
-        </div>
-        <!-- 普通用户显示音色克隆 -->
-        <div v-if="!userInfo.superAdmin && featureStatus.voiceClone" class="equipment-management"
-          :class="{ 'active-tab': $route.path === '/voice-clone-management' }" @click="goVoiceCloneManagement">
-          <img loading="lazy" alt="" src="@/assets/header/voice.png" :style="{
-            filter:
-              $route.path === '/voice-clone-management'
-                ? 'brightness(0) invert(1)'
-                : 'None',
-          }" />
-          <span class="nav-text">{{ $t("header.voiceCloneManagement") }}</span>
-        </div>
-
-        <!-- 超级管理员显示音色克隆下拉菜单 -->
-        <el-dropdown v-if="userInfo.superAdmin && featureStatus.voiceClone" trigger="click" class="equipment-management more-dropdown" :class="{
-          'active-tab':
-            $route.path === '/voice-clone-management' ||
-            $route.path === '/voice-resource-management',
-        }" @visible-change="handleVoiceCloneDropdownVisibleChange">
-          <span class="el-dropdown-link">
-            <img loading="lazy" alt="" src="@/assets/header/voice.png" :style="{
-              filter:
-                $route.path === '/voice-clone-management' ||
-                  $route.path === '/voice-resource-management'
-                  ? 'brightness(0) invert(1)'
-                  : 'None',
-            }" />
-            <span class="nav-text">{{ $t("header.voiceCloneManagement") }}</span>
-            <i class="el-icon-arrow-down el-icon--right" :class="{ 'rotate-down': voiceCloneDropdownVisible }"></i>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item @click.native="goVoiceCloneManagement">
-              {{ $t("header.voiceCloneManagement") }}
-            </el-dropdown-item>
-            <el-dropdown-item @click.native="goVoiceResourceManagement">
-              {{ $t("header.voiceResourceManagement") }}
-            </el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-
-        <div v-if="userInfo.superAdmin" class="equipment-management" :class="{ 'active-tab': $route.path === '/model-config' }"
-          @click="goModelConfig">
-          <img loading="lazy" alt="" src="@/assets/header/model_config.png" :style="{
-            filter:
-              $route.path === '/model-config' ? 'brightness(0) invert(1)' : 'None',
-          }" />
-          <span class="nav-text">{{ $t("header.modelConfig") }}</span>
-        </div>
-        <div v-if="featureStatus.knowledgeBase" class="equipment-management"
-          :class="{ 'active-tab': $route.path === '/knowledge-base-management' || $route.path === '/knowledge-file-upload' }"
-          @click="goKnowledgeBaseManagement">
-          <img loading="lazy" alt="" src="@/assets/header/knowledge_base.png" :style="{
-            filter:
-              $route.path === '/knowledge-base-management' || $route.path === '/knowledge-file-upload' ? 'brightness(0) invert(1)' : 'None',
-          }" />
-          <span class="nav-text">{{ $t("header.knowledgeBase") }}</span>
-        </div>
-        <el-dropdown v-if="userInfo.superAdmin" trigger="click" class="equipment-management more-dropdown" :class="{
-          'active-tab':
-            $route.path === '/dict-management' ||
-            $route.path === '/params-management' ||
-            $route.path === '/provider-management' ||
-            $route.path === '/server-side-management' ||
-            $route.path === '/agent-template-management' ||
-            $route.path === '/ota-management' ||
-            $route.path === '/user-management' ||
-            $route.path === '/feature-management',
-        }" @visible-change="handleParamDropdownVisibleChange">
-          <span class="el-dropdown-link">
-            <img loading="lazy" alt="" src="@/assets/header/param_management.png" :style="{
-              filter:
-                $route.path === '/dict-management' ||
-                  $route.path === '/params-management' ||
-                  $route.path === '/provider-management' ||
-                  $route.path === '/server-side-management' ||
-                  $route.path === '/agent-template-management' ||
-                  $route.path === '/ota-management' ||
-                  $route.path === '/user-management' ||
-                  $route.path === '/feature-management'
-                  ? 'brightness(0) invert(1)'
-                  : 'None',
-            }" />
-            <span class="nav-text">{{ $t("header.paramDictionary") }}</span>
-            <i class="el-icon-arrow-down el-icon--right" :class="{ 'rotate-down': paramDropdownVisible }"></i>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item @click.native="goParamManagement">
-              {{ $t("header.paramManagement") }}
-            </el-dropdown-item>
-            <el-dropdown-item @click.native="goUserManagement">
-              {{ $t("header.userManagement") }}
-            </el-dropdown-item>
-            <el-dropdown-item @click.native="goOtaManagement">
-              {{ $t("header.otaManagement") }}
-            </el-dropdown-item>
-            <el-dropdown-item @click.native="goDictManagement">
-              {{ $t("header.dictManagement") }}
-            </el-dropdown-item>
-            <el-dropdown-item @click.native="goProviderManagement">
-              {{ $t("header.providerManagement") }}
-            </el-dropdown-item>
-            <el-dropdown-item @click.native="goAgentTemplateManagement">
-              {{ $t("header.agentTemplate") }}
-            </el-dropdown-item>
-            <el-dropdown-item @click.native="goServerSideManagement">
-              {{ $t("header.serverSideManagement") }}
-            </el-dropdown-item>
-            <el-dropdown-item @click.native="goFeatureManagement">
-                {{ $t("header.featureManagement") }}
-              </el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </div>
 
       <!-- 右侧元素 -->
       <div class="header-right">
@@ -640,12 +508,15 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  background: #f6fcfe66;
-  border: 1px solid #fff;
-  height: 63px !important;
-  min-width: 900px;
-  /* 设置最小宽度防止过度压缩 */
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  height: 60px !important;
+  width: 100%;
   overflow: visible;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .header-container {
@@ -653,7 +524,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  padding: 0 10px;
+  padding: 0 20px;
 }
 
 .header-left {
@@ -664,13 +535,9 @@ export default {
   cursor: pointer;
 }
 
-.logo-img {
-  width: 42px;
-  height: 42px;
-}
-
-.brand-img {
-  height: 20px;
+.oriagent-logo {
+  height: 28px;
+  width: auto;
 }
 
 .header-center {
@@ -711,7 +578,7 @@ export default {
 }
 
 .equipment-management.active-tab {
-  background: #5778ff !important;
+  background: #000000 !important;
   color: #fff !important;
 }
 
@@ -809,22 +676,23 @@ export default {
 }
 
 .custom-search-input>>>.el-input__inner {
-  height: 18px;
-  border-radius: 9px;
+  height: 32px;
+  border-radius: 50px !important;
   background-color: #fff;
   border: 1px solid #e4e6ef;
-  padding-left: 8px;
-  font-size: 9px;
+  padding-left: 12px;
+  font-size: 13px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   width: 100%;
 }
 
+
 .search-icon {
   cursor: pointer;
   color: #909399;
-  margin-right: 3px;
-  font-size: 9px;
-  line-height: 18px;
+  margin-right: 5px;
+  font-size: 14px;
+  line-height: 32px;
 }
 
 .custom-search-input::v-deep .el-input__suffix-inner {

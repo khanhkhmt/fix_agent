@@ -8,13 +8,13 @@ export default {
 
   // HeaderBar component text
   'header.smartManagement': 'Tác nhân AI',
-  'header.modelConfig': 'Mô hình',
+  'header.modelConfig': 'Mô hình AI',
   'header.knowledgeBase': 'Kiến thức',
   'header.voiceCloneManagement': 'NBAS',
   'header.voiceResourceManagement': 'Tài nguyên giọng nói',
   'header.userManagement': 'Người dùng',
   'header.otaManagement': 'Quản lý OTA',
-  'header.paramDictionary': 'Khác',
+  'header.paramDictionary': 'Quản lý',
   'header.paramManagement': 'Quản lý tham số',
   'header.dictManagement': 'Quản lý từ điển',
   'header.agentTemplate': 'Mẫu vai trò mặc định',
@@ -22,7 +22,7 @@ export default {
   'header.clearHistory': 'Xóa lịch sử',
   'header.providerManagement': 'Quản lý nhà cung cấp',
   'header.serverSideManagement': 'Quản lý máy chủ',
-  'header.featureManagement': 'Cấu hình chức năng hệ thống',
+  'header.featureManagement': 'Cấu hình hệ thống',
   'header.changePassword': 'Đổi mật khẩu',
   'header.logout': 'Đăng xuất',
   'header.searchPlaceholder': 'Tên, thẻ hoặc tìm kiếm mac',
@@ -297,7 +297,7 @@ export default {
 
   // Register page related
   'register.title': 'Tạo tài khoản',
-  'register.welcome': 'Chào mừng đến với XiaoZhi AI',
+  'register.welcome': 'Chào mừng bạn đến với Oriagent',
   'register.usernamePlaceholder': 'Vui lòng nhập tên đăng nhập',
   'register.mobilePlaceholder': 'Vui lòng nhập số điện thoại di động',
   'register.captchaPlaceholder': 'Vui lòng nhập mã xác minh',
@@ -351,7 +351,7 @@ export default {
 
   // Login page text
   'login.title': 'DN',
-  'login.welcome': 'CHÀO MỪNG ĐẾN VỚI ĐĂNG NHẬP',
+  'login.welcome': 'CHÀO MỪNG BẠN ĐẾN VỚI ORIAGENT',
   'login.username': 'Tên đăng nhập',
   'login.usernamePlaceholder': 'Vui lòng nhập tên đăng nhập',
   'login.mobilePlaceholder': 'Vui lòng nhập số điện thoại di động',
@@ -665,12 +665,12 @@ export default {
   'language.ptBR': 'Português (Brasil)',
 
   // Home page text
-  'home.addAgent': 'Thêm tác nhân',
-  'home.greeting': 'Xin chào XiaoZhi',
-  'home.wish': 'Chúc bạn một ngày tuyệt vời!',
+  'home.addAgent': 'Thêm mới Agent',
+  'home.greeting': 'Chào mừng bạn đến với Oriagent',
+  'home.wish': '',
   'home.languageModel': 'LLM',
   'home.voiceModel': 'TTS',
-  'home.configureRole': 'Vai trò',
+  'home.configureRole': 'Agent',
   'home.voiceprintRecognition': 'Giọng nói',
   'home.deviceManagement': 'Thiết bị',
   'home.chatHistory': 'Lịch sử',
@@ -745,7 +745,7 @@ export default {
   'addAgentDialog.addSuccess': 'Thêm thành công',
 
   // Role configuration page text
-  'roleConfig.title': 'Vai trò',
+  'roleConfig.title': 'Agent',
   'roleConfig.addTag': 'Thêm mới nhãn',
   'roleConfig.restartNotice': 'Sau khi lưu cấu hình, bạn cần khởi động lại thiết bị để cấu hình mới có hiệu lực.',
   'roleConfig.saveConfig': 'Lưu cấu hình',
@@ -833,10 +833,10 @@ export default {
   // Model Configuration Page Text
   'modelConfig.searchPlaceholder': 'Vui lòng nhập tên mô hình để tìm kiếm',
   'modelConfig.search': 'Tìm kiếm',
-  'modelConfig.vad': 'Phát hiện hoạt động giọng nói',
+  'modelConfig.vad': 'Phát hiện giọng nói',
   'modelConfig.asr': 'Nhận dạng giọng nói',
-  'modelConfig.llm': 'Mô hình ngôn ngữ lớn',
-  'modelConfig.vllm': 'Mô hình ngôn ngữ thị giác',
+  'modelConfig.llm': 'Mô hình AI',
+  'modelConfig.vllm': 'Mô hình thị giác',
   'modelConfig.intent': 'Nhận dạng ý định',
   'modelConfig.tts': 'Văn bản thành giọng nói',
   'modelConfig.memory': 'Bộ nhớ',

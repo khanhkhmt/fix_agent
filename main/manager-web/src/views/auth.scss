@@ -5,15 +5,79 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, #f5f8fd, #6baaff, #9ebbfc, #f5f8fd);
+  background: linear-gradient(145deg, #f0f2f5, #d9d9d9, #f0f2f5);
   background-size: cover;
-  /* 确保背景图像覆盖整个元素 */
   background-position: center;
-  /* 从顶部中心对齐 */
-  -webkit-background-size: cover;
-  /* 兼容老版本WebKit浏览器 */
-  -o-background-size: cover;
-  /* 兼容老版本Opera浏览器 */
+}
+
+.split-layout {
+  display: flex;
+  min-width: 1200px;
+  min-height: 675px;
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.split-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-image: url("@/assets/login/signin-background.webp");
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.split-right .logo-area {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+}
+
+.split-left .image-area {
+  width: 80%;
+  max-width: 600px;
+}
+
+.split-left .image-area img {
+  width: 100%;
+  height: auto;
+}
+
+.split-right {
+  width: 50%;
+  min-width: 600px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f2f5;
+  position: relative;
+}
+
+.login-box-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box-container .login-box {
+  position: static;
+  transform: none;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 18%;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 35px 0;
+  width: 450px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .login-text {
@@ -34,16 +98,19 @@
   margin-bottom: 7px;
 }
 
-.login-box {
+.login-person {
+  width: 500px;
+  color: #fff;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  right: 18%;
-  background-color: #fff;
-  border-radius: 20px;
-  padding: 35px 0;
-  width: 450px;
-  box-sizing: border-box;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.footer-area {
+  padding-bottom: 20px;
+  text-align: center;
 }
 
 .el-dropdown-link {
@@ -61,7 +128,7 @@
 
 .login-btn {
   height: 35px;
-  background: #5778ff;
+  background: #000000;
   border-radius: 10px;
   font-weight: 400;
   font-size: 14px;
@@ -106,7 +173,7 @@
   }
 
   .el-tabs__item.is-active {
-    color: #5778ff;
+    color: #000000;
   }
 
   .el-tabs__nav-scroll {
@@ -119,14 +186,4 @@
     height: 56px;
     padding: 0;
   }
-}
-
-.login-person {
-  width: 500px;
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 25%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
 }

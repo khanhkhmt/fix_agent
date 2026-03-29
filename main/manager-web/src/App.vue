@@ -1,17 +1,46 @@
 <template>
   <div id="app">
-    <router-view />
+    <div v-if="isLoggedIn && !isAuthPage" class="app-layout">
+      <SideBar />
+      <div class="main-content">
+        <router-view />
+      </div>
+    </div>
+    <div v-else class="auth-layout">
+      <router-view />
+    </div>
     <cache-viewer v-if="isCDNEnabled" :visible.sync="showCacheViewer" />
   </div>
 </template>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  min-height: 100vh;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(145deg, #f0f4ff, #f9faff);
+  
+  .main-content {
+    flex: 1;
+    margin-left: 240px; // Match SideBar width
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.3s ease;
+    width: calc(100% - 240px);
+  }
+}
+
+.auth-layout {
+  min-height: 100vh;
 }
 
 nav {
@@ -29,7 +58,7 @@ nav {
 
 .copyright {
   padding: 0 !important;
-  color: rgb(0, 0, 0);
+  color: #606266;
   font-size: 12px;
   font-weight: 400;
   margin-top: auto;
@@ -43,21 +72,47 @@ nav {
 .el-message {
   top: 70px !important;
 }
+
+// Global scrollbar styling
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 </style>
 <script>
 import CacheViewer from '@/components/CacheViewer.vue';
+import SideBar from '@/components/SideBar.vue';
 import { logCacheStatus } from '@/utils/cacheViewer';
+import { mapState } from 'vuex';
 
 export default {
   name: 'App',
   components: {
-    CacheViewer
+    CacheViewer,
+    SideBar
   },
   data() {
     return {
       showCacheViewer: false,
       isCDNEnabled: process.env.VUE_APP_USE_CDN === 'true'
     };
+  },
+  computed: {
+    ...mapState(['userInfo']),
+    isLoggedIn() {
+      return !!this.userInfo && !!this.userInfo.username;
+    },
+    isAuthPage() {
+      const authPages = ['login', 'Register', 'RetrievePassword', 'welcome'];
+      return authPages.includes(this.$route.name);
+    }
   },
   created() {
     // 挂载 store 状态
@@ -71,7 +126,7 @@ export default {
       return;
     }
     
-    // 只有在启用CDN时才添加相关事件和功能
+    // 只有在启用CDN时才添加相关事件 and 功能
     if (this.isCDNEnabled) {
       // 添加全局快捷键Alt+C用于显示缓存查看器
       document.addEventListener('keydown', this.handleKeyDown);
@@ -84,7 +139,7 @@ export default {
       // 在控制台输出提示信息
       console.info(
         '%c[' + this.$t('system.name') + '] ' + this.$t('cache.cdnEnabled'),
-        'color: #409EFF; font-weight: bold;'
+        'color: #000000; font-weight: bold;'
       );
       console.info(
         '按下 Alt+C 组合键或在控制台运行 checkCDNCacheStatus() 可以查看CDN缓存状态'

@@ -20,7 +20,7 @@
               <div class="left-add" @click="showAddDialog">
                 {{ $t('home.addAgent') }}
               </div>
-              <div style="width: 23px;height: 13px;background: #5778ff;margin-left: -10px;" />
+              <div style="width: 23px;height: 13px;background: #000000;margin-left: -10px;" />
               <div class="right-add">
                 <i class="el-icon-right" @click="showAddDialog" style="font-size: 20px;color: #fff;" />
               </div>
@@ -207,21 +207,12 @@ export default {
 
 <style scoped>
 .welcome {
-  min-width: 900px;
-  min-height: 506px;
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(145deg, #e6eeff, #eff0ff);
-  background-size: cover;
-  /* 确保背景图像覆盖整个元素 */
-  background-position: center;
-  /* 从顶部中心对齐 */
-  -webkit-background-size: cover;
-  /* 兼容老版本WebKit浏览器 */
-  -o-background-size: cover;
-  /* 兼容老版本Opera浏览器 */
+  flex: 1;
+  width: 100%;
 }
+
 
 .add-device {
   height: 195px;
@@ -238,7 +229,7 @@ export default {
   width: 100%;
   height: 100%;
   text-align: left;
-  background-image: url("@/assets/home/main-top-bg.png");
+  background-image: url("@/assets/home/banner.jpeg");
   overflow: hidden;
   background-size: cover;
   /* 确保背景图像覆盖整个元素 */
@@ -279,7 +270,7 @@ export default {
     padding: 0 14px;
     height: 34px;
     border-radius: 17px;
-    background: #5778ff;
+    background: #000000;
     color: #fff;
     font-size: 14px;
     font-weight: 500;
@@ -291,7 +282,7 @@ export default {
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: #5778ff;
+    background: #000000;
     margin-left: -6px;
     display: flex;
     justify-content: center;

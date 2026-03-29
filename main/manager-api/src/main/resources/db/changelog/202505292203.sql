@@ -117,7 +117,7 @@ INSERT INTO ai_model_provider (id, model_type, provider_code, name, fields,
 VALUES ('SYSTEM_PLUGIN_HA_GET_STATE',
         'Plugin',
         'hass_get_state',
-        'HomeAssistant设备状态查询',
+        'HomeAssistant',
         JSON_ARRAY(
                 JSON_OBJECT(
                         'key', 'base_url',

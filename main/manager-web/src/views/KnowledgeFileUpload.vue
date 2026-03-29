@@ -79,7 +79,7 @@
                   {{ $t('knowledgeFileUpload.batchDelete') }}
                 </el-button>
                 <el-button type="primary" icon="el-icon-search" @click="showRetrievalTestDialog"
-                  style="background-color: #409EFF; border-color: #409EFF;">
+                  style="background-color: #000000; border-color: #000000;">
                   {{ $t('knowledgeFileUpload.retrievalTest') }}
                 </el-button>
               </div>
@@ -1162,7 +1162,7 @@ export default {
 
 .btn-back:hover {
   background-color: #f5f7fa;
-  color: #409eff;
+  color: #000000;
 }
 
 .knowledge-base-title {
@@ -1183,7 +1183,7 @@ export default {
 }
 
 .btn-search {
-  background: linear-gradient(135deg, #6b8cff, #a966ff);
+  background: linear-gradient(135deg, #555555, #a966ff);
   border: none;
   color: white;
 }
@@ -1458,7 +1458,7 @@ export default {
 }
 
 :deep(.el-loading-spinner .path) {
-  stroke: #6b8cff;
+  stroke: #555555;
 }
 
 :deep(.el-table__empty-block) {
@@ -1483,7 +1483,7 @@ export default {
     transition: border-color 0.3s ease;
 
     &:hover {
-      border-color: #409eff;
+      border-color: #000000;
     }
 
     .el-icon-upload {
@@ -1646,7 +1646,7 @@ export default {
       .score-value {
         font-size: 14px;
         font-weight: 600;
-        color: #409eff;
+        color: #000000;
       }
     }
   }
@@ -1725,7 +1725,7 @@ export default {
     flex: 1;
 
     .el-icon-document {
-      color: #409eff;
+      color: #000000;
       margin-right: 8px;
       font-size: 16px;
     }
@@ -2052,7 +2052,7 @@ export default {
 
 .count-value {
   font-weight: 600;
-  color: #409eff;
+  color: #000000;
   font-size: 15px;
 }
 

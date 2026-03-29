@@ -530,7 +530,7 @@ export default {
 
     &.active {
         .step-number {
-            background: #6b8cff;
+            background: #555555;
             color: white;
         }
 
@@ -664,7 +664,7 @@ export default {
     top: 0;
     bottom: 0;
     background: rgba(107, 140, 255, 0.3);
-    border: 1px solid #6b8cff;
+    border: 1px solid #555555;
     pointer-events: none;
 }
 

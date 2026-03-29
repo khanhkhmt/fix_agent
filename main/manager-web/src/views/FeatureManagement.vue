@@ -354,7 +354,7 @@ export default {
 .header-icon {
   width: 40px;
   height: 40px;
-  background: #5778ff;
+  background: #000000;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -382,7 +382,7 @@ export default {
 
 .btn-select-all {
   background: #e6ebff;
-  color: #5778ff;
+  color: #000000;
   border: 1px solid #adbdff;
   border-radius: 18px;
   padding: 8px 16px;
@@ -395,7 +395,7 @@ export default {
 }
 
 .save-btn {
-  background: #5778ff;
+  background: #000000;
   color: white;
   border: none;
   border-radius: 18px;
@@ -405,12 +405,12 @@ export default {
 }
 
 .save-btn:hover {
-  background: #4a6ae8;
+  background: #333333;
 }
 
 .reset-btn {
   background: #e6ebff;
-  color: #5778ff;
+  color: #000000;
   border: 1px solid #adbdff;
   border-radius: 18px;
   padding: 8px 16px;
@@ -496,7 +496,7 @@ export default {
 }
 
 .feature-card-item.feature-enabled {
-  border-color:#5778ff;
+  border-color:#000000;
   box-shadow: 0 4px 16px rgba(95, 112, 243, 0.2);
   transform: translateY(-2px);
 }
@@ -513,12 +513,12 @@ export default {
 }
 
 .feature-checkbox ::v-deep .el-checkbox__input.is-checked .el-checkbox__inner {
-  background-color: #5778ff;
-  border-color: #5778ff;
+  background-color: #000000;
+  border-color: #000000;
 }
 
 .feature-checkbox ::v-deep .el-checkbox__input.is-checked + .el-checkbox__label {
-  color: #5778ff;
+  color: #000000;
 }
 
 

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 // 覆盖 autofill 样式
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -29,4 +31,17 @@ select:-webkit-autofill:focus {
   .popper__arrow {
     border-top-color: #e4e7ed !important;
    }
+}
+
+body, html, * {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.welcome {
+  min-width: auto !important;
+  height: auto !important;
+  min-height: 100vh !important;
+  background: transparent !important;
+  display: flex;
+  flex-direction: column;
 }

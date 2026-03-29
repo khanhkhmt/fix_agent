@@ -377,8 +377,8 @@ export default {
 }
 
 .custom-close-btn:hover {
-  color: #409EFF;
-  border-color: #409EFF;
+  color: #000000;
+  border-color: #000000;
 }
 
 .custom-form .el-form-item {

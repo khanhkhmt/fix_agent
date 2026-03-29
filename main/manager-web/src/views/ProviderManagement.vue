@@ -494,7 +494,7 @@ export default {
 }
 
 .btn-search {
-  background: linear-gradient(135deg, #6b8cff, #a966ff);
+  background: linear-gradient(135deg, #555555, #a966ff);
   border: none;
   color: white;
 }
@@ -811,11 +811,11 @@ export default {
 }
 
 :deep(.el-loading-spinner .path) {
-  stroke: #6b8cff;
+  stroke: #555555;
 }
 
 :deep(.el-loading-text) {
-  color: #6b8cff !important;
+  color: #555555 !important;
   font-size: 14px;
   margin-top: 8px;
 }
@@ -851,12 +851,12 @@ export default {
   align-items: center;
 
   &:hover {
-    color: #409EFF;
+    color: #000000;
   }
 }
 
 .dropdown-trigger.active {
-  color: #409EFF;
+  color: #000000;
 }
 
 .dropdown-arrow {
@@ -873,7 +873,7 @@ export default {
 
   &.is-active {
     transform: rotate(180deg);
-    border-top-color: #409EFF;
+    border-top-color: #000000;
   }
 }
 
@@ -894,12 +894,12 @@ export default {
   align-items: center;
 
   &:hover {
-    color: #409EFF;
+    color: #000000;
   }
 }
 
 .dropdown-trigger.active {
-  color: #409EFF;
+  color: #000000;
 }
 
 /* 确保选择列标题样式正确 */

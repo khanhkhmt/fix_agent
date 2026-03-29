@@ -554,7 +554,7 @@ export default {
   flex-shrink: 0;
   width: 8px;
   height: 8px;
-  background-color: #5778ff;
+  background-color: #000000;
   margin-right: 8px;
   border-radius: 50%;
 }
@@ -662,8 +662,8 @@ export default {
 }
 
 .custom-close-btn:hover {
-  color: #409EFF;
-  border-color: #409EFF;
+  color: #000000;
+  border-color: #000000;
 }
 
 ::v-deep .el-checkbox__label {

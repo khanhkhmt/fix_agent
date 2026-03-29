@@ -593,8 +593,8 @@ export default {
 }
 
 .custom-close-btn:hover {
-  color: #409EFF;
-  border-color: #409EFF;
+  color: #000000;
+  border-color: #000000;
 }
 
 /* 备注文本 */
@@ -609,7 +609,7 @@ export default {
 }
 
 ::v-deep .remark-input .el-textarea__inner:focus {
-  border-color: #409EFF !important;
+  border-color: #000000 !important;
   outline: none;
 }
 
