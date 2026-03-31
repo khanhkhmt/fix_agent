@@ -1,16 +1,11 @@
 <template>
-  <div class="welcome" @keyup.enter="register">
-    <el-container style="height: 100%;">
-      <!-- 保持相同的头部 -->
-      <el-header>
-        <div style="display: flex;align-items: center;margin-top: 15px;margin-left: 10px;gap: 10px;">
-          <img src="@/assets/logo_oriagent.svg" alt="Oriagent" style="height: 38px; width: auto; cursor: pointer" @click="goToLogin" />
-        </div>
-      </el-header>
-      <div class="login-person">
-        <img loading="lazy" alt="" src="@/assets/login/register-person.png" style="width: 100%;" />
+  <div class="split-layout" @keyup.enter="register">
+    <div class="split-left"></div>
+    <div class="split-right">
+      <div class="logo-area">
+        <img src="@/assets/logo_oriagent.svg" alt="Oriagent" style="height: 38px; width: auto; cursor: pointer" @click="goToLogin" />
       </div>
-      <el-main style="position: relative;">
+      <div class="login-box-container">
         <div class="login-box">
           <!-- 修改标题部分 -->
           <div style="display: flex;align-items: center;gap: 20px;margin-bottom: 39px;padding: 0 30px;">
@@ -111,13 +106,11 @@
             <div style="display: inline-block;color: #000000;cursor: pointer;" @click="openPage('/privacy-policy.html')">{{ $t('register.privacyPolicy') }}</div>
           </div>
         </div>
-      </el-main>
-
-      <!-- 保持相同的页脚 -->
-      <el-footer>
+      </div>
+      <div class="footer-area">
         <version-footer />
-      </el-footer>
-    </el-container>
+      </div>
+    </div>
   </div>
 </template>
 
