@@ -1,0 +1,4 @@
+services:
+  xiaozhi-edge-router:
+    ports:
+      - "${TEST_HTTP_BIND:-127.0.0.1}:${TEST_HTTP_PORT:-8080}:80"

@@ -41,23 +41,22 @@ async def resume_vad_detection(conn: "ConnectionHandler"):
 
 
 async def startToChat(conn: "ConnectionHandler", text):
-    # 检查输入是否是JSON格式（包含说话人信息）
+    # 检查输入是否是JSON格式（包含说话人信息或情绪/语言标签）
     speaker_name = None
     language_tag = None
     actual_text = text
 
     try:
-        # 尝试解析JSON格式的输入
+        # 尝试解析JSON格式的输入（FunASR返回包含language/emotion/content的dict）
         if text.strip().startswith("{") and text.strip().endswith("}"):
             data = json.loads(text)
-            if "speaker" in data and "content" in data:
-                speaker_name = data["speaker"]
-                language_tag = data["language"]
+            if "content" in data:
+                # 提取纯文本内容，避免将emoji/unicode字符传入LLM请求
                 actual_text = data["content"]
-                conn.logger.bind(tag=TAG).info(f"解析到说话人信息: {speaker_name}")
-
-                # 直接使用JSON格式的文本，不解析
-                actual_text = text
+                language_tag = data.get("language")
+                if "speaker" in data:
+                    speaker_name = data["speaker"]
+                    conn.logger.bind(tag=TAG).info(f"解析到说话人信息: {speaker_name}")
     except (json.JSONDecodeError, KeyError):
         # 如果解析失败，继续使用原始文本
         pass
