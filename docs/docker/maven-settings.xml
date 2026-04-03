@@ -1,0 +1,77 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <profiles>
+    <profile>
+      <id>repo-fallbacks</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>central-primary</id>
+          <name>Maven Central Primary</name>
+          <url>https://repo.maven.apache.org/maven2</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+          <id>central-repo1</id>
+          <name>Maven Central Repo1</name>
+          <url>https://repo1.maven.org/maven2</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+          <id>huaweicloud-maven</id>
+          <name>Huawei Cloud Maven Mirror</name>
+          <url>https://repo.huaweicloud.com/repository/maven/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+          <id>tencent-maven</id>
+          <name>Tencent Maven Mirror</name>
+          <url>https://mirrors.tencent.com/nexus/repository/maven-public/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>central-primary-plugins</id>
+          <name>Maven Central Plugins</name>
+          <url>https://repo.maven.apache.org/maven2</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>central-repo1-plugins</id>
+          <name>Maven Central Repo1 Plugins</name>
+          <url>https://repo1.maven.org/maven2</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>huaweicloud-maven-plugins</id>
+          <name>Huawei Cloud Maven Plugins</name>
+          <url>https://repo.huaweicloud.com/repository/maven/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>tencent-maven-plugins</id>
+          <name>Tencent Maven Plugins</name>
+          <url>https://mirrors.tencent.com/nexus/repository/maven-public/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+      <properties>
+        <maven.wagon.http.retryHandler.count>5</maven.wagon.http.retryHandler.count>
+        <maven.wagon.httpconnectionManager.ttlSeconds>120</maven.wagon.httpconnectionManager.ttlSeconds>
+        <maven.wagon.rto>60000</maven.wagon.rto>
+      </properties>
+    </profile>
+  </profiles>
+</settings>
