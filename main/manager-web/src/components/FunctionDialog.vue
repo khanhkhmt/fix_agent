@@ -87,7 +87,8 @@
                 v-model="textCache[field.key]" @blur="flushJson(field)" />
 
               <!-- number -->
-              <el-input-number v-else-if="field.type === 'number'" :value="currentFunction.params[field.key]"
+              <el-input-number v-else-if="field.type === 'number'" v-model.number="currentFunction.params[field.key]"
+                class="param-number-input" controls-position="right"
                 @change="val => handleParamChange(currentFunction, field.key, val)" />
 
               <!-- boolean -->
@@ -226,6 +227,12 @@ export default {
       if (!newFn) return;
       // 对每个字段，如果是 array 或 json，就在 textCache 里生成初始字符串
       newFn.fieldsMeta.forEach(f => {
+        if (!newFn.params) {
+          this.$set(newFn, 'params', {});
+        }
+        if ((newFn.params[f.key] === undefined || newFn.params[f.key] === null || newFn.params[f.key] === '') && f.default !== undefined) {
+          this.$set(newFn.params, f.key, f.default);
+        }
         const v = newFn.params[f.key];
         if (f.type === 'array') {
           this.$set(this.textCache, f.key, Array.isArray(v) ? v.join('\n') : '');
@@ -582,6 +589,10 @@ export default {
     width: 100%;
   }
 
+  .param-number-input {
+    width: 100%;
+  }
+
   ::v-deep .el-form-item {
     display: flex;
     flex-direction: column;
@@ -604,6 +615,13 @@ export default {
         text-align: left;
         padding-left: 8px;
         width: 100%;
+      }
+
+      .param-number-input .el-input__inner {
+        color: #303133 !important;
+        -webkit-text-fill-color: #303133;
+        text-align: center;
+        padding-left: 0;
       }
     }
   }

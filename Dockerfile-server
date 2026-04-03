@@ -3,5 +3,8 @@ FROM ghcr.io/xinnan-tech/xiaozhi-esp32-server:server-base
 
 COPY main/xiaozhi-server .
 
+# Install newly added packages from requirements.txt
+RUN pip install -r requirements.txt
+
 # 启动应用
 CMD ["python", "app.py"]

@@ -22,6 +22,7 @@ manager-api:
 ```
 
 4. Ensure `deploy/models/SenseVoiceSmall/model.pt` exists.
+5. If using XiaoZhi native web search at scale (vài vạn người dùng), provide a `SEARCH_PROXY` in `.env` to avoid rate limits from search engines.
 
 ## Local / no-domain test
 
@@ -69,7 +70,8 @@ sh scripts/recommend-resources.sh
 
 ## Notes
 
-- Port `8004` is not used by the current runtime path, so this stack does not publish or depend on it.
+- The native `web_search` plugin runs inside `xiaozhi-server` through the normal plugin/function-call pipeline.
+- The current web and mobile UIs can display an MCP access point and discovered MCP tools for an agent, but they do not edit third-party MCP server definitions. Those still come from `data/.mcp_server_settings.json`.
 - The outer `nginx-proxy + acme-companion` layer handles TLS and HTTP-to-HTTPS redirect.
 - The app-specific `xiaozhi-edge-router` handles path-based routing to the Python server and the web/admin container.
 - The web container still contains its own internal Nginx, so admin/API requests pass through one extra Nginx hop by design.

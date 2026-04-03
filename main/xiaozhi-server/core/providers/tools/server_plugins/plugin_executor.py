@@ -68,8 +68,12 @@ class ServerPluginExecutor(ToolExecutor):
             except TypeError:
                 config_functions = []
 
+        plugin_functions = list(self.config.get("plugins", {}).keys())
+
         # 合并所有需要的函数
-        all_required_functions = list(set(necessary_functions + config_functions))
+        all_required_functions = list(
+            set(necessary_functions + config_functions + plugin_functions)
+        )
 
         for func_name in all_required_functions:
             func_item = all_function_registry.get(func_name)

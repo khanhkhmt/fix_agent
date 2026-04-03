@@ -639,8 +639,8 @@ export default {
               return {
                 id: mapping.pluginId,
                 name: meta.name,
-                // 后端如果还有 paramInfo 字段就用 mapping.paramInfo，否则用 meta.params 默认值
-                params: mapping.paramInfo || { ...meta.params },
+                // 将已保存参数和插件默认值合并，避免新增字段在旧智能体上显示为空
+                params: { ...meta.params, ...(mapping.paramInfo || {}) },
                 fieldsMeta: meta.fieldsMeta, // 保留以便对话框渲染 tooltip
               };
             });
