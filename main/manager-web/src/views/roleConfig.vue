@@ -121,6 +121,15 @@
                         placeholder="******** (Leave empty to keep current)"
                       />
                     </el-form-item>
+                    <el-form-item label="Test Link：">
+                      <a
+                        href="http://localhost:8006/test_page.html"
+                        target="_blank"
+                        class="test-link"
+                      >
+                        http://localhost:8006/test_page.html
+                      </a>
+                    </el-form-item>
                     <el-form-item
                       :label="$t('roleConfig.languageCode') + '：'"
                       style="display: none"
@@ -1447,6 +1456,18 @@ export default {
 
 .form-input {
   width: 100%;
+}
+
+.test-link {
+  color: #409eff;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 32px;
+  cursor: pointer;
+}
+.test-link:hover {
+  color: #66b1ff;
+  text-decoration: underline;
 }
 
 .form-select {
