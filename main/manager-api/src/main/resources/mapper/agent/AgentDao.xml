@@ -29,6 +29,9 @@
         <result column="chatHistoryConf" property="chatHistoryConf"/>
         <result column="systemPrompt" property="systemPrompt"/>
         <result column="summaryMemory" property="summaryMemory"/>
+        <result column="oriagentAppId" property="oriagentAppId"/>
+        <result column="oriagentAuthToken" property="oriagentAuthToken"/>
+        <result column="oriagentBaseUrl" property="oriagentBaseUrl"/>
         <result column="langCode" property="langCode"/>
         <result column="language" property="language"/>
         <result column="sort" property="sort"/>
@@ -71,6 +74,9 @@
                a.chat_history_conf AS chatHistoryConf,
                a.system_prompt     AS systemPrompt,
                a.summary_memory    AS summaryMemory,
+               a.oriagent_app_id   AS oriagentAppId,
+               a.oriagent_auth_token AS oriagentAuthToken,
+               a.oriagent_base_url  AS oriagentBaseUrl,
                a.lang_code         AS langCode,
                a.language          AS language,
                a.sort,

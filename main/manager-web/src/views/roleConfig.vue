@@ -94,29 +94,31 @@
                         </el-button>
                       </div>
                     </el-form-item>
-                    <el-form-item :label="$t('roleConfig.roleIntroduction') + '：'">
+                    <el-form-item label="Oriagent App ID：">
                       <el-input
-                        type="textarea"
-                        rows="8"
-                        resize="none"
-                        :placeholder="$t('roleConfig.pleaseEnterContent')"
-                        v-model="form.systemPrompt"
-                        maxlength="2000"
-                        show-word-limit
-                        class="form-textarea"
+                        v-model="form.oriagentAppId"
+                        class="form-input"
+                        maxlength="100"
+                        placeholder="Ex: app-JNL..."
                       />
                     </el-form-item>
 
-                    <el-form-item :label="$t('roleConfig.memoryHis') + '：'">
+                    <el-form-item label="Oriagent Base URL：">
                       <el-input
-                        type="textarea"
-                        rows="4"
-                        resize="none"
-                        v-model="form.summaryMemory"
-                        maxlength="2000"
-                        show-word-limit
-                        class="form-textarea"
-                        :disabled="form.model.memModelId !== 'Memory_mem_local_short'"
+                        v-model="form.oriagentBaseUrl"
+                        class="form-input"
+                        maxlength="255"
+                        placeholder="Ex: https://api.oriagent.com"
+                      />
+                    </el-form-item>
+
+                    <el-form-item label="Oriagent Auth Token：">
+                      <el-input
+                        v-model="form.oriagentAuthToken"
+                        class="form-input"
+                        maxlength="255"
+                        show-password
+                        placeholder="******** (Leave empty to keep current)"
                       />
                     </el-form-item>
                     <el-form-item
@@ -395,6 +397,9 @@ export default {
         chatHistoryConf: 0,
         systemPrompt: "",
         summaryMemory: "",
+        oriagentAppId: "",
+        oriagentAuthToken: "",
+        oriagentBaseUrl: "",
         langCode: "",
         language: "",
         sort: "",
@@ -472,6 +477,9 @@ export default {
         intentModelId: this.form.model.intentModelId,
         systemPrompt: this.form.systemPrompt,
         summaryMemory: this.form.summaryMemory,
+        oriagentAppId: this.form.oriagentAppId,
+        oriagentAuthToken: this.form.oriagentAuthToken,
+        oriagentBaseUrl: this.form.oriagentBaseUrl,
         langCode: this.form.langCode,
         language: this.form.language,
         sort: this.form.sort,
@@ -523,6 +531,9 @@ export default {
             chatHistoryConf: 0,
             systemPrompt: "",
             summaryMemory: "",
+            oriagentAppId: "",
+            oriagentAuthToken: "",
+            oriagentBaseUrl: "",
             langCode: "",
             language: "",
             sort: "",

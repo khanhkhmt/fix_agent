@@ -664,6 +664,26 @@ class ConnectionHandler:
             self.config["selected_module"]["LLM"] = private_config["selected_module"][
                 "LLM"
             ]
+            
+            # Map Oriagent Configs into LLM Provider dict
+            llm_module_name = private_config["selected_module"]["LLM"]
+            if "OriagentLLM" in llm_module_name:
+                ori_app_id = private_config.get("oriagent_app_id", "")
+                ori_base_url = private_config.get("oriagent_base_url", "")
+                ori_auth_token = private_config.get("oriagent_auth_token", "")
+                self.logger.bind(tag=TAG).info(f"Oriagent config from API: app_id={ori_app_id}, base_url={ori_base_url}, auth_token={ori_auth_token[:8] if ori_auth_token else 'EMPTY'}...")
+                # Find the OriagentLLM key in the LLM config dict
+                oriagent_key = None
+                for key in self.config.get("LLM", {}):
+                    if "OriagentLLM" in key:
+                        oriagent_key = key
+                        break
+                if oriagent_key:
+                    self.config["LLM"][oriagent_key]["app_id"] = ori_app_id
+                    self.config["LLM"][oriagent_key]["base_url"] = ori_base_url
+                    self.config["LLM"][oriagent_key]["auth_token"] = ori_auth_token
+                else:
+                    self.logger.bind(tag=TAG).error(f"OriagentLLM key not found in LLM config: {list(self.config.get('LLM', {}).keys())}")
         if private_config.get("VLLM", None) is not None:
             self.config["VLLM"] = private_config["VLLM"]
             self.config["selected_module"]["VLLM"] = private_config["selected_module"][

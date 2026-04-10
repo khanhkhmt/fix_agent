@@ -14,8 +14,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./_dev_data/mysql:/var/lib/mysql
-      # Tự động khởi tạo schema nếu cần (tuy nhiên Liquidbase sẽ xử lý phần lớn)
+      - mysql_data:/var/lib/mysql
 
   # Redis cho Backend
   redis:
@@ -47,3 +46,6 @@ services:
 networks:
   default:
     name: xiaozhi-dev-net
+
+volumes:
+  mysql_data:

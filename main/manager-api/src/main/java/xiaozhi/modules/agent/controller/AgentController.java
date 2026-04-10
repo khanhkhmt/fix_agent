@@ -105,6 +105,10 @@ public class AgentController {
     @RequiresPermissions("sys:role:normal")
     public Result<AgentInfoVO> getAgentById(@PathVariable("id") String id) {
         AgentInfoVO agent = agentService.getAgentById(id);
+        // Mask token for UI display only (not at service level, to avoid poisoning internal API calls)
+        if (agent.getOriagentAuthToken() != null && !agent.getOriagentAuthToken().isEmpty()) {
+            agent.setOriagentAuthToken("********");
+        }
         return ResultUtils.success(agent);
     }
 

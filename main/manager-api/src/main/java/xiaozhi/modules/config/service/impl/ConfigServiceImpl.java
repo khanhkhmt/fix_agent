@@ -213,6 +213,17 @@ public class ConfigServiceImpl implements ConfigService {
         // 获取声纹信息
         buildVoiceprintConfig(agent.getId(), result);
 
+        // 绑定 Oriagent 设置
+        if (StringUtils.isNotBlank(agent.getOriagentAppId())) {
+            result.put("oriagent_app_id", agent.getOriagentAppId());
+        }
+        if (StringUtils.isNotBlank(agent.getOriagentBaseUrl())) {
+            result.put("oriagent_base_url", agent.getOriagentBaseUrl());
+        }
+        if (StringUtils.isNotBlank(agent.getOriagentAuthToken())) {
+            result.put("oriagent_auth_token", agent.getOriagentAuthToken());
+        }
+
         // 构建模块配置
         buildModuleConfig(
                 agent.getAgentName(),
