@@ -46,7 +46,7 @@ class LLMProvider(LLMProviderBase):
                 json=request_json,
                 stream=True,
             ) as r:
-                logger.error(f"Token: {self.bearer_token[:15]}..., Response: {r.status_code}")
+                logger.bind(tag=TAG).debug(f"Oriagent API Response: {r.status_code}")
                 r.raise_for_status()
                 for line in r.iter_lines():
                     if line.startswith(b"data: "):

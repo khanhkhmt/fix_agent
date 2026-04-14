@@ -671,7 +671,7 @@ class ConnectionHandler:
                 ori_app_id = private_config.get("oriagent_app_id", "")
                 ori_base_url = private_config.get("oriagent_base_url", "")
                 ori_auth_token = private_config.get("oriagent_auth_token", "")
-                self.logger.bind(tag=TAG).info(f"Oriagent config from API: app_id={ori_app_id}, base_url={ori_base_url}, auth_token={ori_auth_token[:8] if ori_auth_token else 'EMPTY'}...")
+                self.logger.bind(tag=TAG).info(f"Oriagent config from API: app_id={ori_app_id}, base_url={ori_base_url}, auth_token={'SET' if ori_auth_token else 'EMPTY'}")
                 # Find the OriagentLLM key in the LLM config dict
                 oriagent_key = None
                 for key in self.config.get("LLM", {}):
